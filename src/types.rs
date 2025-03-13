@@ -97,3 +97,12 @@ pub(crate) struct ModelConfig {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub(crate) enable: Option<bool>,
 }
+
+#[derive(Serialize, Deserialize, sqlx::FromRow)]
+pub struct Interaction {
+    pub id: String,
+    pub model: String,
+    pub prompt: String,
+    pub response: String,
+    pub created_at: i64,
+}
